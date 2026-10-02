@@ -1,6 +1,21 @@
-import os, re
+import os, re, threading, time, gc, ctypes
 
-# 1. Admin Password Middleware for server.ts
+# 🛡️ TRICK 1: 24/7 Auto-RAM Trimmer (Har 60 sec me unused RAM clean karega)
+def ram_guard():
+    try:
+        libc = ctypes.CDLL('libc.so.6')
+        while True:
+            time.sleep(60)
+            gc.collect()
+            libc.malloc_trim(0)
+    except Exception:
+        pass
+
+t = threading.Thread(target=ram_guard, daemon=True)
+t.start()
+print("🚀 24/7 RAM Guard Activated!")
+
+# 🔒 TRICK 2: Admin Password Protection (Public ko bot nahi dikhega)
 admin_middleware = """
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "amrit@admin99";
 app.use((req, res, next) => {
@@ -28,7 +43,7 @@ if os.path.exists("server.ts"):
                 f.write(s)
             print("server.ts secured with Admin Password!")
 
-# 2. Floating Admin Lock Button in index.html
+# 🔒 Floating Admin Lock Button in UI
 admin_btn_script = """
 <script>
 (function(){
