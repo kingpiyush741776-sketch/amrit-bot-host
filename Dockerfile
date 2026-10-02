@@ -1,6 +1,6 @@
 FROM node:20-bookworm-slim
 
-# 🔥 TRICK 3: Ultra-Low RAM Tuning (Memory full hone se bachata hai)
+# 🔥 150 Bots Memory Optimizer (Single Process High-Density)
 ENV PYTHONOPTIMIZE=2
 ENV MALLOC_ARENA_MAX=2
 ENV NODE_OPTIONS="--max-old-space-size=128"
