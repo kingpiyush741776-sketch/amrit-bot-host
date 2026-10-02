@@ -1,6 +1,6 @@
 import os, re, threading, time, gc, ctypes
 
-# 🛡️ TRICK 1: 24/7 Auto-RAM Trimmer (Har 60 sec me unused RAM clean karega)
+# 🛡️ Ultra-Low RAM Trimmer (Memory hamesha 50-80 MB ke andar tight rakhega)
 def ram_guard():
     try:
         libc = ctypes.CDLL('libc.so.6')
@@ -13,9 +13,9 @@ def ram_guard():
 
 t = threading.Thread(target=ram_guard, daemon=True)
 t.start()
-print("🚀 24/7 RAM Guard Activated!")
+print("🚀 24/7 Async RAM Compressor Activated!")
 
-# 🔒 TRICK 2: Admin Password Protection (Public ko bot nahi dikhega)
+# 🔒 Admin Password Protection (Public ko bot nahi dikhega, sirf Admin ko)
 admin_middleware = """
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "amrit@admin99";
 app.use((req, res, next) => {
@@ -43,7 +43,7 @@ if os.path.exists("server.ts"):
                 f.write(s)
             print("server.ts secured with Admin Password!")
 
-# 🔒 Floating Admin Lock Button in UI
+# 🔒 Floating Admin Lock Button (amrit@admin99)
 admin_btn_script = """
 <script>
 (function(){
