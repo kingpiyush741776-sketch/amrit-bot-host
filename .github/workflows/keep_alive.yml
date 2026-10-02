@@ -1,0 +1,15 @@
+name: 24x7 Mental Monster Keep-Alive
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Har 10 minute me automatic cloud se chalega
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake Up Render Server
+        run: |
+          curl -sS -I https://amrit-bot-host.onrender.com || true
+          echo "⚡ Mental Monster server pinged successfully from Cloud!"
